@@ -2,7 +2,7 @@
 //  GameScene.swift
 //  flayingBird
 //
-//  Created by Defne Çetiner on 20.03.2023.
+//  Created by Defne Çetiner on 24.03.2023.
 //
 
 import SpriteKit
@@ -25,18 +25,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var originalPozition: CGPoint?
     var score = 0
   
-    
-    
-    
     enum colliderType: UInt32 {
         case Bird = 1
         case Ice = 2
-        
     }
     
     override func didMove(to view: SKView) {
- 
-        
         
         //Physics body
         self.physicsBody = SKPhysicsBody(edgeLoopFrom: frame) // total bir çerçeve dünyası yani kuş yere düşer kaybolmaz
@@ -44,12 +38,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.contactDelegate = self
         
         // --Label--
-        
         nameLabel = childNode(withName: "nameLabel") as! SKLabelNode
         scoreLabel = childNode(withName: "scoreLabel") as! SKLabelNode
         
-        
-        
+    
         // --BİRD--
         bird = childNode(withName: "bird") as! SKSpriteNode
         let birdTexture = SKTexture(imageNamed: "bird")
@@ -75,6 +67,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         ice1.physicsBody?.mass = 0.7
         ice1.physicsBody?.collisionBitMask = colliderType.Bird.rawValue
         
+        
         ice2 = childNode(withName: "ice2") as! SKSpriteNode
         ice2.physicsBody = SKPhysicsBody(rectangleOf: size)
         ice2.physicsBody?.isDynamic = true
@@ -82,6 +75,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         ice2.physicsBody?.allowsRotation = true
         ice2.physicsBody?.mass = 0.7
         ice2.physicsBody?.collisionBitMask = colliderType.Bird.rawValue
+       
         
         
         ice3 = childNode(withName: "ice3") as! SKSpriteNode
@@ -92,6 +86,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         ice3.physicsBody?.mass = 0.7
         ice3.physicsBody?.collisionBitMask = colliderType.Bird.rawValue
         
+        
        
         ice4 = childNode(withName: "ice4") as! SKSpriteNode
         ice4.physicsBody = SKPhysicsBody(rectangleOf: size)
@@ -100,6 +95,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         ice4.physicsBody?.allowsRotation = true
         ice4.physicsBody?.mass = 0.7
         ice4.physicsBody?.collisionBitMask = colliderType.Bird.rawValue
+       
         
       
         ice5 = childNode(withName: "ice5") as! SKSpriteNode
@@ -110,6 +106,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         ice5.physicsBody?.mass = 0.7
         ice5.physicsBody?.collisionBitMask = colliderType.Bird.rawValue
        
+       
         ice6 = childNode(withName: "ice6") as! SKSpriteNode
         ice6.physicsBody = SKPhysicsBody(rectangleOf: size)
         ice6.physicsBody?.isDynamic = true
@@ -117,6 +114,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         ice6.physicsBody?.allowsRotation = true
         ice6.physicsBody?.mass = 0.7
         ice6.physicsBody?.collisionBitMask = colliderType.Bird.rawValue
+       
         
         ice7 = childNode(withName: "ice7") as! SKSpriteNode
         ice7.physicsBody = SKPhysicsBody(rectangleOf: size)
@@ -125,6 +123,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         ice7.physicsBody?.allowsRotation = true
         ice7.physicsBody?.mass = 0.7
         ice7.physicsBody?.collisionBitMask = colliderType.Bird.rawValue
+      
         
     }
     func didBegin(_ contact: SKPhysicsContact) {
